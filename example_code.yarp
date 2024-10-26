@@ -1,0 +1,14 @@
+decl hello: string;
+set hello "Hello World!";
+print hello;
+
+decl test: int;
+scan test;
+if (test > 5)
+	print "Your input was greater than 5!";
+else
+	print "Your input was less than or equal 5!";
+end;
+
+conv test: float;
+print test;
