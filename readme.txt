@@ -51,7 +51,7 @@ I'm not giving even an approximation of finishing this, as I know it's a very ti
 I'm hoping on at least getting a somewhat working demo of the language done before the end of 2024.
 Well, would be nice to finish the language before July 2025, but I just know it won't happen.
 It's a long term project, not something to finish in a week or two, and I know my previous projects
-were suppoesd to be long term as well (I'm looking at you toasterscriptloader), but I just lost any
+were supposed to be long term as well (I'm looking at you toasterscriptloader), but I just lost any
 motivation to develop them any further. I still don't know why I chose to create a programming language
 but hey, it's a project nonetheless and maybe I'll learn something along the way.
 
