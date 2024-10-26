@@ -19,29 +19,29 @@ And yes, I've chosen the programming language name to be what it is, just becaus
 and then I can name the interpreter executable 'yarp'.
 
 :: Keywords
-01 print <value>						: print <value> to screen
-02 decl <variable>: <type>				: declare a <variable> with <type>
-03 set <variable> <value>				: set a <value> to <variable>
-04 scan <variable>						: get the user input, and store it in <variable>
-05 inc <variable> <n>					: increment a <variable> by <n>
-06 for (<condition>)					: begin a loop with <condition>; the condition consists of 3 parts: variable to increment, increment until, increment
-07 if (<condition>)						: execute when the <condition> was met
-08 elif (<condition)					: execute when the <condition> was met, but not any above conditions
-09 else									: execute when no conditions were met
-10 swap <variable_a> <variable_b>		: swap values of two variables
-11 conv <variable>: <type>				: convert a <variable> to new <type>
-12 ret <value>							: return a <value> from a function
-13 continue								: continue executing code
-14 func <name>: <type> (<params>)		: declare a function with <name> of <type> with <params>
-15 end									: end a code block (for, if, elif, else, func)
-16 break								: break out of the loop
+01 print <value>                    : print <value> to screen
+02 decl <variable>: <type>          : declare a <variable> with <type>
+03 set <variable> <value>           : set a <value> to <variable>
+04 scan <variable>                  : get the user input, and store it in <variable>
+05 inc <variable> <n>               : increment a <variable> by <n>
+06 for (<condition>)                : begin a loop with <condition> (variable to increment, increment until, increment)
+07 if (<condition>)                 : execute when the <condition> was met
+08 elif (<condition)                : execute when the <condition> was met, but not any above conditions
+09 else                             : execute when no conditions were met
+10 swap <variable_a> <variable_b>   : swap values of two variables
+11 conv <variable>: <type>          : convert a <variable> to new <type>
+12 ret <value>                      : return a <value> from a function
+13 continue                         : continue executing code
+14 func <name>: <type> (<params>)   : declare a function with <name> of <type> with <params>
+15 end                              : end a code block (for, if, elif, else, func)
+16 break                            : break out of the loop
 
 :: Datatypes
-01 int									: integer, 32-bit
-02 float								: floating-point, 32-bit
-03 bool									: boolean, true or false
-04 string								: character string, max. 2^16 bytes
-05 char									: single character, ASCII 0-127
+01 int                              : integer, 32-bit
+02 float                            : floating-point, 32-bit
+03 bool                             : boolean, true or false
+04 string                           : character string, max. 2^16 bytes
+05 char                             : single character, ASCII 0-127
 
 :: Functions
 (idk)
