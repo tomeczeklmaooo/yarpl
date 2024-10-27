@@ -5,9 +5,10 @@ This language is not supposed to be used professionally, because (1) it doesn't 
 I'm not a professional developer. Quite the opposite.
 
 --> Well, here's the idea:
-* The language will be interpreted, which means the performance will not be amazing, but who cares.
+* The language will be interpreted, which means the performance will not be amazing, but who cares
 * There will be like 16 keywords, all doing different things obviously
 * Datatypes like INT, FLOAT, BOOL, STRING, CHAR will be supported
+* All the basic operators
 * Functions maybe later idk
 * Hopefully Turing Complete
 (I know that's a lot of stuff to do for my first programming language but oh well...)
@@ -37,11 +38,22 @@ and then I can name the interpreter executable 'yarp'.
 16 break                            : break out of the loop
 
 :: Datatypes
-01 int                              : integer, 32-bit
+01 int                              : integer, signed 32-bit (-2,147,483,648 -> 2,147,483,647)
 02 float                            : floating-point, 32-bit
 03 bool                             : boolean, true or false
-04 string                           : character string, max. 2^16 bytes
-05 char                             : single character, ASCII 0-127
+04 string                           : character string, max. 2^16 bytes (0 -> 65535 chars)
+05 char                             : single character, ASCII (0 -> 127)
+
+:: Operators
+01 AND                              : both inputs must be true                            (&&)
+02 OR                               : one input must be true                              (||)
+03 NOT                              : negation                                            (!)
+04 EQUAL                            : check if values are equal                           (==)
+05 NOTEQUAL                         : check if values are not equal                       (!=)
+06 GREATERTHAN                      : check if value is greater than other value          (>)
+07 GREATERTHANEQUAL                 : check if value is greater than or equal other value (>=)
+08 LESSTHAN                         : check if value is less than other value             (<)
+09 LESSTHANEQUAL                    : check if value is greater than or equal other value (<=)
 
 :: Functions
 (idk)
