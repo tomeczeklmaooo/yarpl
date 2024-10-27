@@ -11,5 +11,9 @@ void yarplshell()
 	{
 		printf("yarpl>> ");
 		scanf("%s", (char*)&shinput);
+		// here call the function that will parse the input and the display it
+		// like: yarplparse(shinput, true);
+		// where the first parameter is the string to parse, and the second one is whether to print or not
+		// that's the general idea for this
 	}
 }
