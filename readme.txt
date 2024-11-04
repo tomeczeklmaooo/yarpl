@@ -77,7 +77,7 @@ I don't know what I'm doing basically. I just want to inflict psychological pain
 And some of the keywords are stupid (conv and swap), but I called this language 'ridiculous' for a reason.
 
 --> Compiling
-I'll create a proper Makefile later, but for now use: gcc src/*.c -o bin/yarp -Wall -Werror -std=c23
+I'll create a proper Makefile later, but for now use: ./make.sh
 Make sure to have the bin directory created or else it won't compile.
 
 --> Acknowledgements
