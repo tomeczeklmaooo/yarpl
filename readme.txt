@@ -80,6 +80,9 @@ And some of the keywords are stupid (conv and swap), but I called this language 
 I'll create a proper Makefile later, but for now use: ./make.sh
 Make sure to have the bin directory created or else it won't compile.
 
+--> Things working right now
+Nothing.
+
 --> Acknowledgements
 Base of the language (lexer, parser) will be based on https://github.com/davidcallanan/py-myopl-code,
 but written in C instead of Python and with multiple changes to fit my vision of the language.
