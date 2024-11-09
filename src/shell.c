@@ -8,26 +8,31 @@
 void shell()
 {
 	printf("yarpl interpreter v0.1\n");
-	Token token;
-	char shinput[128] = "";
-	char output[1024] = "";
+	char input[256];
+	char output[1024];
 	char token_string[80];
 
-	while (strcmp(shinput, "exit") != 0)
+	while (1)
 	{
 		printf("yarpl>> ");
-		scanf("%s", (char*)&shinput);
-		// this just so we can pass the input to get_next_token()
-		const char *input_ptr = (char*)&shinput;
+		fgets(input, sizeof(input), stdin);
+
+		// exit
+		if (strncmp(input, "exit", 4) == 0) break;
+
+		const char *input_ptr = input;
+		Token token;
+		output[0] = '\0'; // resetting the output
+
 		while ((token = get_next_token(&input_ptr)).type != TOKEN_END)
 		{
 			return_token(token, token_string);
 			strcat(output, token_string);
+			strcat(output, " ");
 		}
 
-		return_token(token, token_string);
-		strcat(output, token_string);
-
+		// return_token(token, token_string);
+		// strcat(output, token_string);
 		printf("%s\n", output);
 	}
 }

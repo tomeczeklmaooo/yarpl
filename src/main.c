@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	{
 		for (int i = 0; i < argc; i++)
 		{
-			// need to make the shell work, but good to know file reading also works
+			// reading from file
 			FILE *fptr;
 			fptr = fopen(argv[1], "r");
 			char file_content[32768]; // idk why 32768 bytes
