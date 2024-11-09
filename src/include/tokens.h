@@ -1,13 +1,20 @@
 #ifndef TOKENS_H
 #define TOKENS_H
 
-// a table of all tokens (obviously)
-extern char* tokens[];
+typedef enum
+{
+	TOKEN_IDENTIFIER,
+	TOKEN_NUMBER,
+	TOKEN_OPERATOR,
+	TOKEN_END
+} TokenType;
 
-/*
-	@param type: token type, char *tokens
-	@param value: token value, idk, return none if no value
-*/
-char* return_token(char* type, char* value);
+typedef struct
+{
+	TokenType type;
+	char value[64];
+} Token;
+
+void return_token(Token token, char *output);
 
 #endif

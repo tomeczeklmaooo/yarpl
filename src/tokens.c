@@ -1,23 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "include/tokens.h"
 
-char* tokens[] = {
-	"INT",
-	"FLOAT",
-	"PLUS",
-	"MINUS",
-	"MUL",
-	"DIV",
-	"LPAREN",
-	"RPAREN"
-};
-
-char* return_token(char* type, char* value)
+void return_token(Token token, char *output)
 {
-	char* token = (char*)malloc(255 * sizeof(char));
-	if (value == NULL) sprintf(token, "%s", type);
-	else sprintf(token, "%s:%s", type, value);
-	return token;
+	switch (token.type)
+	{
+		case TOKEN_IDENTIFIER:
+			sprintf(output, "IDENTIFIER:%s", token.value);
+			break;
+		case TOKEN_NUMBER:
+			sprintf(output, "NUMBER:%s", token.value);
+			break;
+		case TOKEN_OPERATOR:
+			sprintf(output, "OPERATOR:%s", token.value);
+			break;
+		case TOKEN_END:
+			sprintf(output, "END_OF_INPUT");
+			break;
+		default:
+			sprintf(output, "UNKNOWN");
+			break;
+	}
 }
