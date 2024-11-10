@@ -5,6 +5,7 @@
 #include "include/shell.h"
 #include "include/lexer.h"
 #include "include/tokens.h"
+#include "include/constants.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,36 +20,41 @@ int main(int argc, char *argv[])
 			// reading from file
 			FILE *fptr;
 			fptr = fopen(argv[1], "r");
-			char file_content[32768]; // idk why 32768 bytes
+			char line[1024];
 			
-			Token token;
-			char output[1024] = "";
-			char token_string[80];
+			char output[MAX_OUTPUT_LENGTH] = "";
+			char token_string[MAX_TOKEN_STRING];
 
 			if (fptr != NULL)
 			{
-				printf("yarpl interpreter v0.1\n");
-				while (fgets(file_content, 32768, fptr))
+				while (fgets(line, sizeof(line), fptr))
 				{
 					// this just so we can pass the input to get_next_token()
-					const char *input_ptr = file_content;
-					while ((token = get_next_token(&input_ptr)).type != TOKEN_END)
+					const char *line_ptr = line;
+					Token token;
+					output[0] = '\0';
+					while ((token = get_next_token(&line_ptr)).type != TOKEN_EOL)
 					{
-						return_token(token, token_string);
-						strcat(output, token_string);
-						strcat(output, " ");
+						return_token(token, token_string, MAX_TOKEN_STRING);
+						strncat(output, token_string, MAX_OUTPUT_LENGTH - strlen(output) - 1);
+						strncat(output, " ", MAX_OUTPUT_LENGTH - strlen(output) - 1);
 					}
 
-					// return_token(token, token_string);
-					// strcat(output, token_string);
+					return_token((Token){TOKEN_EOL, ""}, token_string, MAX_TOKEN_STRING);
+					strncat(output, token_string, MAX_OUTPUT_LENGTH - strlen(output) - 1);
+
 					printf("%s\n", output);
 				}
+				
+				return_token((Token){TOKEN_EOF, ""}, output, MAX_OUTPUT_LENGTH);
+				printf("%s\n", output);
+
+				fclose(fptr);
 			}
 			else
 			{
 				printf("Unable to open file: %s\n", argv[1]);
 			}
-			fclose(fptr);
 			break;
 		}
 	}

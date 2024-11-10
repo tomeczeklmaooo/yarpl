@@ -13,8 +13,8 @@ Token get_next_token(const char **input)
 		(*input)++;
 	}
 
-	// return TOKEN_END on end of input
-	if (**input == '\0') return (Token){TOKEN_END, ""};
+	// return TOKEN_EOL on end of line
+	if (**input == '\0') return (Token){TOKEN_EOL, ""};
 
 	// parse identifier
 	if (isalpha(**input))

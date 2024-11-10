@@ -6,7 +6,8 @@ typedef enum
 	TOKEN_IDENTIFIER,
 	TOKEN_NUMBER,
 	TOKEN_OPERATOR,
-	TOKEN_END
+	TOKEN_EOL,
+	TOKEN_EOF
 } TokenType;
 
 typedef struct
@@ -15,6 +16,6 @@ typedef struct
 	char value[64];
 } Token;
 
-void return_token(Token token, char *output);
+void return_token(Token token, char *output, int max_length);
 
 #endif

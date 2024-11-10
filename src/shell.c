@@ -4,6 +4,7 @@
 #include "include/shell.h"
 #include "include/lexer.h"
 #include "include/tokens.h"
+#include "include/constants.h"
 
 void shell()
 {
@@ -24,15 +25,18 @@ void shell()
 		Token token;
 		output[0] = '\0'; // resetting the output
 
-		while ((token = get_next_token(&input_ptr)).type != TOKEN_END)
+		while ((token = get_next_token(&input_ptr)).type != TOKEN_EOL)
 		{
-			return_token(token, token_string);
-			strcat(output, token_string);
-			strcat(output, " ");
+			return_token(token, token_string, MAX_TOKEN_STRING);
+			strncat(output, token_string, MAX_OUTPUT_LENGTH - strlen(output) - 1);
+			strncat(output, " ", MAX_OUTPUT_LENGTH - strlen(output) - 1);
 		}
 
-		// return_token(token, token_string);
-		// strcat(output, token_string);
+		return_token((Token){TOKEN_EOL, ""}, token_string, MAX_TOKEN_STRING);
+		strncat(output, token_string, MAX_OUTPUT_LENGTH - strlen(output) - 1);
+		printf("%s ", output);
+
+		return_token((Token){TOKEN_EOF, ""}, output, MAX_OUTPUT_LENGTH);
 		printf("%s\n", output);
 	}
 }

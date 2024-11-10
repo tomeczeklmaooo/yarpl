@@ -4,24 +4,27 @@
 
 #include "include/tokens.h"
 
-void return_token(Token token, char *output)
+void return_token(Token token, char *output, int max_length)
 {
 	switch (token.type)
 	{
 		case TOKEN_IDENTIFIER:
-			sprintf(output, "IDENTIFIER:%s", token.value);
+			snprintf(output, max_length, "IDENTIFIER:%s", token.value);
 			break;
 		case TOKEN_NUMBER:
-			sprintf(output, "NUMBER:%s", token.value);
+			snprintf(output, max_length, "NUMBER:%s", token.value);
 			break;
 		case TOKEN_OPERATOR:
-			sprintf(output, "OPERATOR:%s", token.value);
+			snprintf(output, max_length, "OPERATOR:%s", token.value);
 			break;
-		case TOKEN_END:
-			sprintf(output, "END_OF_INPUT");
+		case TOKEN_EOL:
+			snprintf(output, max_length, "EOL");
+			break;
+		case TOKEN_EOF:
+			snprintf(output, max_length, "EOF");
 			break;
 		default:
-			sprintf(output, "UNKNOWN");
+			snprintf(output, max_length, "UNKNOWN");
 			break;
 	}
 }
