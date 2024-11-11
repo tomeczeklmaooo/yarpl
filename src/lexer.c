@@ -4,6 +4,8 @@
 
 #include "include/lexer.h"
 #include "include/tokens.h"
+#include "include/keywords.h"
+#include "include/datatypes.h"
 
 Token get_next_token(const char **input)
 {
@@ -26,6 +28,10 @@ Token get_next_token(const char **input)
 			token.value[i++] = *(*input)++;
 		}
 		token.value[i] = '\0';
+
+		// check if identifier is a keyword
+		if (is_keyword(token.value)) token.type = TOKEN_KEYWORD;
+		if (is_datatype(token.value)) token.type = TOKEN_DATATYPE;
 		return token;
 	}
 

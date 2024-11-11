@@ -8,8 +8,14 @@ void return_token(Token token, char *output, int max_length)
 {
 	switch (token.type)
 	{
+		case TOKEN_KEYWORD:
+			snprintf(output, max_length, "KEYWORD:%s", token.value);
+			break;
 		case TOKEN_IDENTIFIER:
 			snprintf(output, max_length, "IDENTIFIER:%s", token.value);
+			break;
+		case TOKEN_DATATYPE:
+			snprintf(output, max_length, "DATATYPE:%s", token.value);
 			break;
 		case TOKEN_NUMBER:
 			snprintf(output, max_length, "NUMBER:%s", token.value);
